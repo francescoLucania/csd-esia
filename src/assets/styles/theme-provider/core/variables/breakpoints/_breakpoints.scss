@@ -1,0 +1,19 @@
+
+$breakpoints: (
+  sm: 767px,
+  md: 768px,
+  lg: 1024px
+) !default;
+
+$breakpointsGridGap: (
+  sm: 100%,
+  md: 100%,
+  lg: 1180px
+) !default;
+
+$breakpointsContainerMaxWidth: (sm: 420px, md: 1024px) !default;
+
+$breakpointsContainerPadding: (
+  padding-right: (sm: 30px, md: 20px),
+  padding-left: (sm: 30px, md: 20px),
+) !default;

@@ -1,0 +1,45 @@
+@use '../../variables/breakpoints/breakpoints' as vars;
+@use '../media/media' as media;
+
+@mixin grid(
+  $main-axis: x,
+  $justify-content: flex-start,
+  $align-items: flex-start,
+) {
+  display: flex;
+  justify-content: $justify-content;
+  align-items: $align-items;
+
+  @if $main-axis == x {
+    flex-flow: row wrap;
+  }
+
+  @if $main-axis == y {
+    flex-flow: column nowrap;
+  }
+
+  @each $breakpoints-grid-gutter in vars.$breakpointsGridGap {
+    $breakpoints: nth($breakpoints-grid-gutter, 1);
+    $gutter: -#{nth($breakpoints-grid-gutter, 2) / 2};
+
+    @include media.mq($breakpoints) {
+      margin-right: $gutter;
+      margin-left: $gutter;
+    }
+  }
+}
+
+@mixin grid-col-mx($size) {
+  flex: 0 0 $size * 100%;
+  max-width: $size * 100%;
+
+  @each $breakpoints-grid-gutter in vars.$breakpointsGridGap {
+    $breakpoints: nth($breakpoints-grid-gutter, 1);
+    $gutter: nth($breakpoints-grid-gutter, 2) / 2;
+
+    @include media.mq($breakpoints) {
+      padding-right: $gutter;
+      padding-left: $gutter;
+    }
+  }
+}

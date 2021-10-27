@@ -1,0 +1,13 @@
+@use '../iterators/iterators' as iterators;
+@use '../../variables/breakpoints/breakpoints' as breakpointsVars;
+
+@mixin container {
+  @include  iterators.eachMedia('max-width', breakpointsVars.$breakpointsContainerMaxWidth);
+  @include  iterators.eachStyle(breakpointsVars.$breakpointsContainerPadding);
+
+  width: 100%;
+  margin: {
+    right: auto;
+    left: auto;
+  };
+}

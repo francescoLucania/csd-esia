@@ -1,0 +1,21 @@
+@use 'sass:list';
+@use 'sass:map';
+@use 'sass:meta';
+@use '../theme_provider' as theme;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background: theme.$color-background;
+}
